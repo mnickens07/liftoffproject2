@@ -48,6 +48,8 @@ public class HelloController {
         dogNames.add("Esther");
         dogNames.add("Spock");
         dogNames.add("Spike");
+        dogNames.add("Spot");
+        dogNames.add("Bella");
         model.addAttribute("dogNames",dogNames);
         return "hello-list";
     }
