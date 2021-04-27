@@ -32,7 +32,7 @@ public class HelloController {
     @GetMapping("hello-list")
     public String helloNames(Model model){
         List<String> names = new ArrayList<>();
-        names.add("Marcus");
+        names.add("Marus");
         names.add("Isaiah");
         names.add("Nickens");
         model.addAttribute("names",names);
