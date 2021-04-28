@@ -32,7 +32,7 @@ public class HelloController {
     @GetMapping("hello-list")
     public String helloNames(Model model){
         List<String> names = new ArrayList<>();
-        names.add("Marus");
+        names.add("Marcus");
         names.add("Isaiah");
         names.add("Nickens");
         model.addAttribute("names",names);
@@ -54,7 +54,7 @@ public class HelloController {
         return "hello-list";
     }
 
-    @GetMapping("index")
+    @RequestMapping("")
     public String index(Model model){
         String greeting = "Hey, World!";
         model.addAttribute("greeting",greeting);
