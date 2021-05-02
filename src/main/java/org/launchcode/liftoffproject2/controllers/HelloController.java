@@ -19,8 +19,10 @@ public class HelloController {
 
     @GetMapping("hey/{name}")//better way to handle the heyQueryParam method. helloPathParam basically replaces it.
     public String helloPathParam(@PathVariable String name, Model model){
-        String greeting = "Hey, "+name+ "!";
+        String greeting = "Hey, " +name+ "!";
+        String sayBye = "Goodbye, " +name+"!";
         model.addAttribute("greeting", greeting);
+        model.addAttribute("sayBye", sayBye);
         return "hey";
     }
 
