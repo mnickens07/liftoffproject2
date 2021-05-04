@@ -2,8 +2,10 @@ package org.launchcode.liftoffproject2.models;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 
+@Entity
 public class User extends AbstractEntity {
 
     @NotNull
