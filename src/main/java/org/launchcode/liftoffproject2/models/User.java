@@ -5,7 +5,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 
-@Entity
+@Entity//without this annotation I was getting this error. Caused by: java.lang.IllegalArgumentException: Not a managed type: class org.launchcode.liftoffproject2.models.User
 public class User extends AbstractEntity {
 
     @NotNull
