@@ -1,5 +1,6 @@
 package org.launchcode.liftoffproject2.controllers;
 
+import org.launchcode.liftoffproject2.models.dto.LoginFormDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -55,12 +56,4 @@ public class HelloController {
         model.addAttribute("dogNames",dogNames);
         return "hello-list";
     }
-
-    @RequestMapping("")
-    public String index(Model model){
-        String greeting = "Hey, World!";
-        model.addAttribute("greeting",greeting);
-        return "index";
-    }
-
 }
