@@ -21,14 +21,14 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
     @Autowired
     AuthenticationController authenticationController;
 
-   private static final List<String> whitelist = Arrays.asList("/login", "/register", "logout", "/css");
+   private static final List<String> whitelist = Arrays.asList("/login", "/register", "logout", "/css", "/");
 // a whitelist field filters which pages are allowed without authentication. The index/home page should not be
 // one of the protected pages because I want users visiting to be able to see the homepage before they register/login.
 // At minimum the user should be allowed to access the routes associated with login, logout, and register.
 
     private static boolean isWhitelisted(String path) {
         for (String pathRoot :whitelist) {
-            if (path.startsWith(pathRoot)) { //could also use .equals() instead of startsWith() to be more restrictive.
+            if (path.equals(pathRoot)) { //could also use .equals() instead of startsWith() to be more restrictive.
                 return true;
             }
         }
