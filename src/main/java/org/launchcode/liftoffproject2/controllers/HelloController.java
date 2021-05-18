@@ -33,7 +33,7 @@ public class HelloController {
     }
 
     @GetMapping("hello-list")
-    public String helloNames(Model model){
+    public String helloNames(Model model, @RequestParam String name){
         List<String> names = new ArrayList<>();
         names.add("Marcus");
         names.add("Isaiah");
@@ -43,17 +43,5 @@ public class HelloController {
 
     }
 
-    @RequestMapping("dogs")
-    public String dogNames(Model model){
-        List<String> dogNames=new ArrayList<>();
-        dogNames.add("Charles");
-        dogNames.add("Carl");
-        dogNames.add("Esther");
-        dogNames.add("Spock");
-        dogNames.add("Spike");
-        dogNames.add("Spot");
-        dogNames.add("Bella");
-        model.addAttribute("dogNames",dogNames);
-        return "hello-list";
-    }
+
 }
