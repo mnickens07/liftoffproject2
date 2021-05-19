@@ -19,7 +19,7 @@ public class EventController {
         names.add("Browns v. Chiefs");
         names.add("Lakers v. Warriors");
         names.add("Cubs v. Cardinals");
-        model.addAttribute("name", names);
+        model.addAttribute("names", names);
         return "events/index";
     }
 
