@@ -14,11 +14,18 @@
     <a href="https://www.ncaatickets.com/championship/womens-final-four" class="container">NCAA Women</a>
 
     <table class="table table-striped">
-        <thead>
+        <thead class="thead-light">
             <tr>
                 <th>Date</th>
                 <th>Event Name</th>
                 <th>Location</th>
+                <div class="form-group">
+                    <label>
+                        <input type="text" placeholder="Search by date, event, etc." th:field="${name}" class="form-control-lg">
+                    </label>
+                    <input type="submit" value="Search" class="btn btn-info">
+
+                </div>
             </tr>
         </thead>
     </table>
