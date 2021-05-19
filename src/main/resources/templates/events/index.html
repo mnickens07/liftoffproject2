@@ -15,19 +15,27 @@
 
     <table class="table table-striped">
         <thead class="thead-light">
-            <tr>
-                <th>Date</th>
-                <th>Event Name</th>
-                <th>Location</th>
-                <div class="form-group">
-                    <label>
-                        <input type="text" placeholder="Search by date, event, etc." th:field="${name}" class="form-control-lg">
-                    </label>
-                    <input type="submit" value="Search" class="btn btn-info">
+        <div class="form-group">
+            <label>
+                <input type="text" placeholder="Search by date, event, etc." th:field="${events}" class="form-control-lg">
+            </label>
+            <input type="submit" value="Search" class="btn btn-info">
 
-                </div>
+        </div>
+            <tr>
+                <td>Date</td>
+                <td>Event Name</td>
+                <td>Location</td>
             </tr>
+        <h3>All Sporting Events</h3>
+        <p th:unless="${events} and ${events.size()}">No events have been added.</p>
+        <tr>
+            <th:block th:each="event:${events}">
+                <td th:text="${event}"></td>
+            </th:block>
+        </tr>
         </thead>
     </table>
+
 </body>
 </html>
