@@ -4,10 +4,13 @@
 <body class="container">
 <header th:replace="fragments :: header"></header>
 
-<h1>Create Sporting Event</h1>
+
 <form method="post" action="/events/create">
-    <input type="text" name="eventName" class="container">
-    <input type="submit" value="Create" class="btn btn-info">
+        <label>
+            <input type="text" name="eventName" placeholder="create your own sports event" class="container">
+            <input type="submit" value="Create" class="btn btn-info">
+        </label>
+
 </form>
 </body>
 </html>

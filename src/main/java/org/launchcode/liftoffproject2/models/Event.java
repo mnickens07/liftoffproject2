@@ -17,8 +17,6 @@ public class Event extends AbstractEntity{
 
     @Override
     public String toString() {
-        return "Event{" +
-                "name='" + name + '\'' +
-                '}';
+        return name;
     }
 }

@@ -17,9 +17,11 @@
 
 <header th:fragment="header">
 
-    <nav class="navbar navbar-dark bg-primary">
+    <nav class="navbar navbar-dark bg-dark">
         <img th:src="@{/passtime-logo2.png}" width="200" height="100">
-        <h3  class="media">PassTime Sports</h3>Sporting Events
+        <h3  class="media" th:href="@{/events}">PassTime Sports
+            <a ></a>
+        </h3>Sporting Events
     </nav>
 
     <ul class="nav" style="float:right;">

@@ -1,5 +1,6 @@
 package org.launchcode.liftoffproject2.controllers;
 
+import org.launchcode.liftoffproject2.models.Event;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,19 +23,21 @@ public class EventController {
 //        events.add("Browns v. Chiefs");
 //        events.add("Lakers v. Warriors");
 //        events.add("Cubs v. Cardinals");
+        model.addAttribute("title", "All Events");
         model.addAttribute("events", events);
         return "events/index";
     }
 
     @GetMapping("create")
-    public String renderCreateEventForm() {
+    public String renderCreateEventForm(Model model) {
+        model.addAttribute("title", "Create Sporting Event");
         return "events/create";
     }
 
     @PostMapping("create")
-    public String createEvent(@RequestParam String eventName){
-        events.add(eventName);
-        return "redirect:";//redirect sends user to the root path which is /events.
+    public String processCreateEventForm(@RequestParam String eventName) {
+        events.add((eventName));
+        return "redirect:";
     }
 
 }
