@@ -8,28 +8,18 @@
 
     <table class="table table-striped">
         <thead class="thead-light">
-
-        <p class="container">
-
-            <label>
-                <input type="text" placeholder="Search by date, event, etc." th:field="${events}" class="container">
-                <input type="submit" value="Search" class="btn btn-info">
-            </label>
-
-
-
-        </p>
             <tr>
-                <td>Date</td>
-                <td>Event Name</td>
-                <td>Location</td>
+                <th>Event Name</th>
+                <th>Description</th>
+
             </tr>
         <h3>All Sporting Events</h3>
         <p th:unless="${events} and ${events.size()}">No events have been added.</p>
         <p><a href="/events/create">Create Event</a></p>
         <tr>
             <th:block th:each="event:${events}">
-                <td th:text="${event}"></td>
+                <td th:text="${event.name}"></td>
+                <td th:text="${event.description}"></td>
             </th:block>
         </tr>
         </thead>
