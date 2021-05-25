@@ -1,16 +1,19 @@
 package org.launchcode.liftoffproject2.models;
 
 import javax.persistence.Entity;
+import java.util.Date;
 
 @Entity
 public class Event extends AbstractEntity{
 
     private String name;
     private String description;
+    private Date date;
 
-    public Event(String name, String description){
+    public Event(String name, String description, Date date){
         this.name=name;
         this.description=description;
+        this.date=date;
     }
 
     public String getName() {
@@ -27,6 +30,14 @@ public class Event extends AbstractEntity{
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     @Override

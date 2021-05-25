@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -35,8 +36,8 @@ public class EventController {
     }
 
     @PostMapping("create")
-    public String processCreateEventForm(@RequestParam String eventName, @RequestParam String eventDescription) {
-        events.add(new Event(eventName, eventDescription));
+    public String processCreateEventForm(@RequestParam String eventName, @RequestParam String eventDescription, @RequestParam Date eventDate) {
+        events.add(new Event(eventName, eventDescription, eventDate));
         return "redirect:";
     }
 
