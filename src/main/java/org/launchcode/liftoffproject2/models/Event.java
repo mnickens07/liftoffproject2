@@ -2,9 +2,12 @@ package org.launchcode.liftoffproject2.models;
 
 import javax.persistence.Entity;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 public class Event extends AbstractEntity{
+    private int id;
+    private static int nextId=1;
 
     private String name;
     private String description;
@@ -14,6 +17,13 @@ public class Event extends AbstractEntity{
         this.name=name;
         this.description=description;
         this.date=date;
+        this.id=nextId;
+        nextId++;
+    }
+
+    @Override
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -43,5 +53,20 @@ public class Event extends AbstractEntity{
     @Override
     public String toString() {
         return name;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Event event = (Event) o;
+        return id == event.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), id);
     }
 }

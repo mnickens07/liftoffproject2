@@ -19,17 +19,18 @@
         <p th:unless="${events} and ${events.size()}">No events have been added.</p>
         <p><a href="/events/create">Create Event</a></p>
         <tr>
+            <th>Event ID</th>
             <th>Event Name</th>
             <th>Description</th>
-
-        </tr>
-        <tr>
-            <th:block th:each="event:${events}">
-                <td th:text="${event.name}"></td>
-                <td th:text="${event.description}"></td>
-            </th:block>
+            <th>Date</th>
         </tr>
     </thead>
+        <tr th:each="event:${events}">
+                <td th:text="${event.id}"></td>
+                <td th:text="${event.name}"></td>
+                <td th:text="${event.description}"></td>
+        </tr>
+
 </table>
 
 </body>

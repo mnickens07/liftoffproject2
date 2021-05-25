@@ -9,6 +9,7 @@
     <table class="table table-striped">
         <thead class="thead-light">
             <tr>
+                <th>Event ID</th>
                 <th>Event Name</th>
                 <th>Description</th>
                 <th>Date</th>
@@ -16,14 +17,14 @@
         <h3>All Sporting Events</h3>
         <p th:unless="${events} and ${events.size()}">No events have been added.</p>
         <p><a href="/events/create">Create Event</a></p>
-        <tr>
-            <th:block th:each="event:${events}">
+        </thead>
+            <tr th:each="event:${events}">
+                <td th:text="${event.id}"></td>
                 <td th:text="${event.name}"></td>
                 <td th:text="${event.description}"></td>
                 <td th:text="${event.date}"></td>
-            </th:block>
-        </tr>
-        </thead>
+            </tr>
+
     </table>
 
 </body>
