@@ -1,12 +1,10 @@
 package org.launchcode.liftoffproject2.controllers;
 
+import org.launchcode.liftoffproject2.data.EventData;
 import org.launchcode.liftoffproject2.models.Event;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,8 +14,6 @@ import java.util.List;
 @RequestMapping("events")
 public class EventController {
 
-    private static List<Event> events = new ArrayList<>();
-
     @GetMapping
     public String displayAllEvents(Model model) {
 //        List<String> events = new ArrayList<>();
@@ -25,7 +21,7 @@ public class EventController {
 //        events.add("Lakers v. Warriors");
 //        events.add("Cubs v. Cardinals");
         model.addAttribute("title", "All Events");
-        model.addAttribute("events", events);
+        model.addAttribute("events", EventData.getAll());
         return "events/index";
     }
 
@@ -36,9 +32,12 @@ public class EventController {
     }
 
     @PostMapping("create")
-    public String processCreateEventForm(@RequestParam String eventName, @RequestParam String eventDescription, @RequestParam Date eventDate) {
-        events.add(new Event(eventName, eventDescription, eventDate));
+    public String processCreateEventForm(@ModelAttribute Event newEvent) {
+        EventData.addEvents(newEvent);
         return "redirect:";
     }
+
+
+
 
 }
