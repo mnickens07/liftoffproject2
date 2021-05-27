@@ -4,6 +4,7 @@ import org.launchcode.liftoffproject2.models.Event;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -25,8 +26,8 @@ public class HomeController {
     }
 
     @PostMapping("create")
-    public String processCreateEventForm(@RequestParam String eventName, @RequestParam String eventDescription, @RequestParam Date eventDate){
-        events.add(new Event(eventName, eventDescription, eventDate));
+    public String processCreateEventForm(@ModelAttribute Event newEvent){
+        events.add(newEvent);
         return "redirect:";
     }
 

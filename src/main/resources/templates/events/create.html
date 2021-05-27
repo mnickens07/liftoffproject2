@@ -5,25 +5,31 @@
 <header th:replace="fragments :: header"></header>
 
 
-<form method="post" action="/events/create">
-    <div>
-        <label>Create Sporting Event
+<form method="post">
+    <div class="form-group">
+        <label>Event Name
             <input type="text" name="name" placeholder="create an event" class="form-control">
         </label>
     </div>
-    <div>
+    <div class="form-group">
         <label>
             Description
             <input type="text" name="description" placeholder="a brief description" class="form-control">
         </label>
     </div>
-    <div>
+    <div class="form-group">
         <label>
             Date
             <input type="text" name="date" placeholder="MM/DD/YYYY" class="form-control">
         </label>
     </div>
-    <div>
+    <div class="form-group">
+        <label>
+            Contact Email
+            <input type="text" name="contactEmail"  class="form-control">
+        </label>
+    </div>
+    <div >
         <input type="submit" value="Create" class="btn btn-info">
     </div>
 </form>
