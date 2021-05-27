@@ -8,5 +8,5 @@ import javax.transaction.Transactional;
 
 @Repository
 @Transactional
-public interface EventRepository extends CrudRepository<Event, Integer> {
+public interface EventRepository extends CrudRepository<Event, Integer> {//CrudRepository<class that we are storing in database, data type of the primekey>
 }

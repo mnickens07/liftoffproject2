@@ -8,26 +8,30 @@
 <form method="post">
     <div class="form-group">
         <label>Event Name
-            <input type="text" name="name" placeholder="create an event" class="form-control">
+            <input th:field="${event.name}" placeholder="create an event" class="form-control">
         </label>
+        <p class="error" th:errors="${event.name}"></p>
     </div>
     <div class="form-group">
         <label>
             Description
-            <input type="text" name="description" placeholder="a brief description" class="form-control">
+            <input th:field="${event.description}" placeholder="a brief description" class="form-control">
         </label>
+        <p class="error" th:errors="${event.description}"></p>
     </div>
     <div class="form-group">
         <label>
             Date
-            <input type="text" name="date" placeholder="MM/DD/YYYY" class="form-control">
+            <input th:field="${event.date}" placeholder="MM/DD/YYYY" class="form-control">
         </label>
+        <p th:text="${dateErrorMsg}" style="color:red;"></p>
     </div>
     <div class="form-group">
         <label>
             Contact Email
-            <input type="text" name="contactEmail"  class="form-control">
+            <input th:field="${event.contactEmail}"  class="form-control">
         </label>
+        <p class="error" th:errors="${event.contactEmail}"></p>
     </div>
     <div >
         <input type="submit" value="Create" class="btn btn-info">

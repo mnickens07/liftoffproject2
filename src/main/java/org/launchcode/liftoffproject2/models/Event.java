@@ -1,27 +1,35 @@
 package org.launchcode.liftoffproject2.models;
 
+import org.launchcode.liftoffproject2.data.EventRepository;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.Objects;
 
 @Entity
 public class Event extends AbstractEntity{
-    private int id;
-    private static int nextId=1;
 
-    @NotBlank
+    @Id
+    @GeneratedValue//generates nextId for me instead of me manually doing it with i++
+    private int id;
+
+    @NotBlank(message="name is required.")
     @Size(min=3, max=50)
     private String name;
 
     @Size(max=500, message="Description too long.")
     private String description;
 
+    @NotNull
     private Date date;
 
-    @NotBlank
+    @NotBlank(message="email is required.")
     @Email(message="Invalid email format.")
     private String contactEmail;
 
@@ -30,9 +38,9 @@ public class Event extends AbstractEntity{
         this.description=description;
         this.date=date;
         this.contactEmail=contactEmail;
-        this.id=nextId;
-        nextId++;
     }
+
+    public Event() {}
 
     @Override
     public int getId() {
