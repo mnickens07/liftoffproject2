@@ -1,32 +1,29 @@
 package org.launchcode.liftoffproject2.controllers;
 
-import org.launchcode.liftoffproject2.data.EventData;
 import org.launchcode.liftoffproject2.data.EventRepository;
 import org.launchcode.liftoffproject2.models.Event;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 @Controller
 @RequestMapping("events")
 public class EventController {
 
-
+    @Autowired
+    private EventRepository eventRepository; //methods that come from crudRepository include findAll(), findById(), save()
 
     @GetMapping
     public String displayAllEvents(Model model) {
-//        List<String> events = new ArrayList<>();
-//        events.add("Browns v. Chiefs");
-//        events.add("Lakers v. Warriors");
-//        events.add("Cubs v. Cardinals");
         model.addAttribute("title", "All Events");
-        model.addAttribute("events", EventData.getAll());
+        model.addAttribute("events", eventRepository.findAll());
         return "events/index";
     }
 
@@ -44,7 +41,7 @@ public class EventController {
             model.addAttribute("dateErrorMsg", "Invalid date format MM/DD/YY");
             return "events/create";
         }
-        EventData.addEvents(newEvent);
+        eventRepository.save(newEvent);
         return "redirect:";
     }
 
