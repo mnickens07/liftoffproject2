@@ -15,8 +15,8 @@ import java.util.Objects;
 @Entity
 public class Event extends AbstractEntity{
 
-//    @Id
-//    @GeneratedValue//generates nextId for me instead of me manually doing it with i++
+    @Id
+    @GeneratedValue//generates nextId for me instead of me manually doing it with i++
     private int id;
 
     @NotBlank(message="name is required.")
