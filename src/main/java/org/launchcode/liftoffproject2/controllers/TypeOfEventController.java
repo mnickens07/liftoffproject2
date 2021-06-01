@@ -42,7 +42,7 @@ public class TypeOfEventController {
             return "eventType/create";
         }
         typeOfEventRepository.save(typeOfEvent);
-        return "redirect";
+        return "redirect:";
     }
 
 }
