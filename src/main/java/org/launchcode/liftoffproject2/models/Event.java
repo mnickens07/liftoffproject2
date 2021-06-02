@@ -19,10 +19,6 @@ public class Event extends AbstractEntity{
     @GeneratedValue//generates nextId for me instead of me manually doing it with i++
     private int id;
 
-    @NotBlank(message="name is required.")
-    @Size(min=3, max=50)
-    private String name;
-
     @Size(max=500, message="Description too long.")
     private String description;
 
@@ -33,8 +29,8 @@ public class Event extends AbstractEntity{
     @Email(message="Invalid email format.")
     private String contactEmail;
 
-    public Event(String name, String description, Date date, String contactEmail){
-        this.name=name;
+    public Event( String description, Date date, String contactEmail){
+
         this.description=description;
         this.date=date;
         this.contactEmail=contactEmail;
@@ -45,14 +41,6 @@ public class Event extends AbstractEntity{
     @Override
     public int getId() {
         return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getDescription() {
@@ -77,11 +65,6 @@ public class Event extends AbstractEntity{
 
     public void setContactEmail(String contactEmail) {
         this.contactEmail = contactEmail;
-    }
-
-    @Override
-    public String toString() {
-        return name;
     }
 
 
