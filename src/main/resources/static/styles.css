@@ -3,8 +3,7 @@ h3{
 color: white;
 }
 
-a{
-    color: blue;
+a.resize{
     font-size:18px;
     background-color: transparent;
 
@@ -18,5 +17,11 @@ a{
 div {
 
 white-space: nowrap;
+
+}
+
+img{
+    width:auto;
+    height:auto;
 
 }

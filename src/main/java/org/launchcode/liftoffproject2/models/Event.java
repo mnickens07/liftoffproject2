@@ -5,6 +5,7 @@ import org.launchcode.liftoffproject2.data.EventRepository;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -14,10 +15,6 @@ import java.util.Objects;
 
 @Entity
 public class Event extends AbstractEntity{
-
-    @Id
-    @GeneratedValue//generates nextId for me instead of me manually doing it with i++
-    private int id;
 
     @Size(max=500, message="Description too long.")
     private String description;
@@ -29,19 +26,21 @@ public class Event extends AbstractEntity{
     @Email(message="Invalid email format.")
     private String contactEmail;
 
-    public Event( String description, Date date, String contactEmail){
+    @NotNull(message="Event type is required.")
+    @ManyToOne
+    private TypeOfEvent typeOfEvent;
+
+
+    public Event( String description, Date date, String contactEmail,TypeOfEvent typeOfEvent){
 
         this.description=description;
         this.date=date;
         this.contactEmail=contactEmail;
+        this.typeOfEvent=typeOfEvent;
     }
 
     public Event() {}
 
-    @Override
-    public int getId() {
-        return id;
-    }
 
     public String getDescription() {
         return description;
@@ -67,18 +66,11 @@ public class Event extends AbstractEntity{
         this.contactEmail = contactEmail;
     }
 
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        Event event = (Event) o;
-        return id == event.id;
+    public TypeOfEvent getTypeOfEvent() {
+        return typeOfEvent;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), id);
+    public void setTypeOfEvent(TypeOfEvent typeOfEvent) {
+        this.typeOfEvent = typeOfEvent;
     }
 }

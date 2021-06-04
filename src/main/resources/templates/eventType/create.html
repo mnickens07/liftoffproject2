@@ -8,7 +8,7 @@
 <form method="post">
     <div class="form-group">
         <label>Event Type
-            <input th:field="${typeOfEvent.name}" class="form-control">
+            <input th:field="${typeOfEvent.name}" placeholder="create an event type" class="form-control">
         </label>
         <span class="error" th:errors="${typeOfEvent.name}"></span>
     </div>
