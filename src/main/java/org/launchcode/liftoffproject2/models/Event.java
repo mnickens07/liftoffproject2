@@ -16,6 +16,10 @@ import java.util.Objects;
 @Entity
 public class Event extends AbstractEntity{
 
+    @NotBlank(message="This field is required.")
+    @Size(max=100)
+    private String name;
+
     @Size(max=500, message="Description too long.")
     private String description;
 
@@ -31,8 +35,8 @@ public class Event extends AbstractEntity{
     private TypeOfEvent typeOfEvent;
 
 
-    public Event( String description, Date date, String contactEmail,TypeOfEvent typeOfEvent){
-
+    public Event( String name,String description, Date date, String contactEmail,TypeOfEvent typeOfEvent){
+        this.name=name;
         this.description=description;
         this.date=date;
         this.contactEmail=contactEmail;
@@ -41,6 +45,13 @@ public class Event extends AbstractEntity{
 
     public Event() {}
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getDescription() {
         return description;

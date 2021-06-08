@@ -6,30 +6,17 @@
 <!--<h1>PassTime Sports Events</h1>-->
 
 <header th:replace="fragments :: header"></header>
-<h3>All Sporting Events</h3>
 
-<table class="table table-striped">
-    <thead class="thead-light">
+
+
         <p>
 
                 <input type="text" placeholder="Search by date, event, etc."  class="form-control">
                 <input type="submit" value="Search" class="btn btn-info">
 
         </p>
-        <p th:unless="${events} and ${events.size()}">No events have been added.</p>
-        <p><a href="/events/create">Create Event</a></p>
-        <tr>
-            <th>Event ID</th>
-            <th>Event Name</th>
-            <th>Description</th>
-            <th>Date</th>
-        </tr>
-    </thead>
-        <tr th:each="event:${events}">
-                <td th:text="${event.id}"></td>
-                <td th:text="${event.name}"></td>
-                <td th:text="${event.description}"></td>
-        </tr>
+
+
 
 </table>
 
