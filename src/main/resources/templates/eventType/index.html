@@ -17,7 +17,7 @@
     </thead>
     <tr th:each="type:${types}">
         <td th:text="${type.id}"></td>
-        <td th:text="${type.name}" th:href="'/types?typeId=' + ${type.id}"></td>
+        <td  ><a th:text="${type.name}" th:href="'/events?typeId=' + ${type.id}"></a></td>
     </tr>
 
 </table>

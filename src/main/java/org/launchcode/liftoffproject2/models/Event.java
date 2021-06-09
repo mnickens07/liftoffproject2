@@ -1,17 +1,18 @@
 package org.launchcode.liftoffproject2.models;
 
-import org.launchcode.liftoffproject2.data.EventRepository;
+import org.w3c.dom.events.EventException;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.sql.Time;
 import java.util.Date;
-import java.util.Objects;
 
 @Entity
 public class Event extends AbstractEntity{
@@ -20,26 +21,19 @@ public class Event extends AbstractEntity{
     @Size(max=100)
     private String name;
 
-    @Size(max=500, message="Description too long.")
-    private String description;
-
+    @OneToOne(cascade = CascadeType.ALL)
+    @Valid
     @NotNull
-    private Date date;
-
-    @NotBlank(message="email is required.")
-    @Email(message="Invalid email format.")
-    private String contactEmail;
+    private EventDetails eventDetails;
 
     @NotNull(message="Event type is required.")
     @ManyToOne
     private TypeOfEvent typeOfEvent;
 
 
-    public Event( String name,String description, Date date, String contactEmail,TypeOfEvent typeOfEvent){
+    public Event( String name, EventDetails eventDetails, TypeOfEvent typeOfEvent){
         this.name=name;
-        this.description=description;
-        this.date=date;
-        this.contactEmail=contactEmail;
+        this.eventDetails=eventDetails;
         this.typeOfEvent=typeOfEvent;
     }
 
@@ -53,28 +47,12 @@ public class Event extends AbstractEntity{
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public EventDetails getEventDetails() {
+        return eventDetails;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public String getContactEmail() {
-        return contactEmail;
-    }
-
-    public void setContactEmail(String contactEmail) {
-        this.contactEmail = contactEmail;
+    public void setEventDetails(EventDetails eventDetails) {
+        this.eventDetails = eventDetails;
     }
 
     public TypeOfEvent getTypeOfEvent() {
