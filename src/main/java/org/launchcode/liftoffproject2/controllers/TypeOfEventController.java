@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("eventType")
+@RequestMapping("typeOfEvent")
 public class TypeOfEventController {
 
     @Autowired
@@ -24,14 +24,14 @@ public class TypeOfEventController {
     public String displayAllTypes(Model model){
         model.addAttribute("title","All Sports");
         model.addAttribute("types", typeOfEventRepository.findAll());
-        return "eventType/index";
+        return "typeOfEvent/index";
     }
 
     @GetMapping("create")
     public String renderCreateTypeForm(Model model) {
         model.addAttribute("title", "Create Sport Type");
         model.addAttribute(new TypeOfEvent());
-        return "eventType/create";
+        return "typeOfEvent/create";
     }
 
     @PostMapping("create")
@@ -39,7 +39,7 @@ public class TypeOfEventController {
         if(errors.hasErrors()){
             model.addAttribute("title", "Create Type");
             model.addAttribute(new TypeOfEvent());
-            return "eventType/create";
+            return "typeOfEvent/create";
         }
         typeOfEventRepository.save(typeOfEvent);
         return "redirect:";

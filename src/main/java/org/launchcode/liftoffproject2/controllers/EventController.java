@@ -108,7 +108,7 @@ public class EventController {
                 event.addTag(tag);
                 eventRepository.save(event);
             }
-            return "redirect:detail?eventId=" + event.getId();
+            return "redirect:detail?eventId=" + event.getId();//events/add-tag?eventId=13
         }
 
         return "redirect:add-tag";

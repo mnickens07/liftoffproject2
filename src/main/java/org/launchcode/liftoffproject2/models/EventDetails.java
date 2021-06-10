@@ -1,12 +1,15 @@
 package org.launchcode.liftoffproject2.models;
 
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.sql.Time;
 import java.util.Date;
+import java.util.TimeZone;
 
 @Entity
 public class EventDetails extends AbstractEntity{
@@ -14,6 +17,7 @@ public class EventDetails extends AbstractEntity{
     @Size(max=500, message="Description too long.")
     private String description;
 
+    @Temporal(TemporalType.DATE)
     @NotNull
     private Date date;
 
@@ -24,15 +28,16 @@ public class EventDetails extends AbstractEntity{
     @NotBlank(message="Location is required.")
     private String location;
 
-    @NotNull(message = "Time is required.")
-    private Time time;
+//    @Temporal(TemporalType.TIME)
+//    @NotNull(message = "Time is required.")
+//    private TimeZone time;
 
-    public EventDetails(String description, Date date, String contactEmail, String location, Time time) {
+    public EventDetails(String description, Date date, String contactEmail, String location, TimeZone time) {
         this.description = description;
         this.date = date;
         this.contactEmail = contactEmail;
         this.location = location;
-        this.time = time;
+//        this.time = time;
     }
 
     public EventDetails() {}
@@ -69,11 +74,11 @@ public class EventDetails extends AbstractEntity{
         this.location = location;
     }
 
-    public Time getTime() {
-        return time;
-    }
-
-    public void setTime(Time time) {
-        this.time = time;
-    }
+//    public TimeZone getTime() {
+//        return time;
+//    }
+//
+//    public void setTime(TimeZone time) {
+//        this.time = time;
+//    }
 }

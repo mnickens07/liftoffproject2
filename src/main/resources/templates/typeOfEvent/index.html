@@ -10,10 +10,6 @@
         <th>Event ID</th>
         <th>Event Type</th>
     </tr>
-    <div>
-        <p><a href="/eventType/create">Create Type</a></p>
-    </div>
-
     </thead>
     <tr th:each="type:${types}">
         <td th:text="${type.id}"></td>

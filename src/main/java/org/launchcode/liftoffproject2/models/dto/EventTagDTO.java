@@ -5,7 +5,7 @@ import org.launchcode.liftoffproject2.models.Tag;
 
 import javax.validation.constraints.NotNull;
 
-public class EventTagDTO {
+public class EventTagDTO {//use data transfer objects to pass around a tag and event together in a bundle
 
     @NotNull
     private Event event;
