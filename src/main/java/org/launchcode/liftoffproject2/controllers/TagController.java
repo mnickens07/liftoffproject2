@@ -19,6 +19,10 @@ public class TagController {
     @Autowired
     private TagRepository tagRepository;
 
+   @GetMapping("hey")
+   public String hey(){
+       return "/hey";
+   }
     @GetMapping
     public String displayTags(Model model) {
         model.addAttribute("title", "All Tags");
