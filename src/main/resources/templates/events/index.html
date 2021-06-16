@@ -17,6 +17,7 @@
                 <th>Location</th>
                 <th>Contact Email</th>
                 <th>Event Type</th>
+                <th>Event Actions</th>
             </tr>
         <h3>All Sporting Events</h3>
         <p th:unless="${events} and ${events.size()}">No events have been added.</p>
@@ -30,7 +31,12 @@
                 <td th:text="${event.eventDetails.location}"></td>
                 <td th:text="${event.eventDetails.contactEmail}"></td>
                 <td th:text="${event.typeOfEvent.name}"></td>
+                <td><a th:href="@{/events/edit/{id}(id=${event.id})}">Edit</a></td>
+
+
             </tr>
+
+
 
     </table>
 

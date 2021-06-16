@@ -6,24 +6,24 @@ import java.util.*;
 
 public class EventData {
 
-//    //need a place to put events
-//    private static final Map<Integer, Event> events = new HashMap<>();
-//
-//    //get all events
-//    public static Collection<Event> getAll() {
-//        return events.values();
-//
-//    }
-//
-//    //add a single event
-//    public static Event getEventById(Integer id){
-//        return events.get(id);
-//    }
-//
-//    //add an event
-//    public static void addEvents(Event event){
-//        events.put(event.getId(), event);
-//    }
+    //need a place to put events
+    private static final Map<Integer, Event> events = new HashMap<>();
+
+    //get all events
+    public static Collection<Event> getAll() {
+        return events.values();
+
+    }
+
+    //add a single event
+    public static Event getEventById(Integer id){
+        return events.get(id);
+    }
+
+    //add an event
+    public static void addEvents(Event event){
+        events.put(event.getId(), event);
+    }
 
     public static ArrayList<Event> findByColumnAndValue(String column, String value, Iterable<Event> allEvents) {
 

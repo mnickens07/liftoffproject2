@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.text.html.Option;
 import javax.validation.Valid;
 import java.util.Optional;
 
@@ -66,6 +67,25 @@ public class EventController {
         return "redirect:";
     }
 
+    @GetMapping("edit/{eventId}")
+    public String displayEditForm(Model model, @PathVariable int eventId){
+        Optional<Event> event = eventRepository.findById(eventId);
+        model.addAttribute("title", "Edit Event "+event.get().getName()+" (id="+event.get().getId()+")");
+        model.addAttribute("event", event.get());
+        return "events/edit";
+    }
+
+    @PostMapping("edit")
+    public String processEditForm(int eventId, String name, String description,Model model) {
+        Optional<Event> result=eventRepository.findById(eventId);
+        Event event= result.get();
+        event.setName(name);
+        event.getEventDetails().setDescription(description);
+        model.addAttribute("event",eventRepository.findAll());
+
+        return "redirect:/events";
+    }
+
     @GetMapping("detail")
     public String displayEventDetails(@RequestParam Integer eventId, Model model) {
 
@@ -112,6 +132,25 @@ public class EventController {
         }
 
         return "redirect:add-tag";
+    }
+
+    @GetMapping("delete")
+    public String displayDeleteEventForm(Model model) {
+        model.addAttribute("title", "Delete Events");
+        model.addAttribute("events", eventRepository.findAll());
+        return "events/delete";
+    }
+
+    @PostMapping("delete")
+    public String processDeleteEventsForm(@RequestParam(required = false) int[] eventIds) {
+
+        if (eventIds != null) {
+            for (int id : eventIds) {
+                eventRepository.deleteById(id);
+            }
+        }
+
+        return "redirect:";
     }
 
 
