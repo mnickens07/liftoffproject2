@@ -7,7 +7,6 @@
 
     <script th:src="@{script.js}"></script>
     <link th:href="@{styles.css}" rel="stylesheet">
-    <link rel="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
@@ -48,25 +47,13 @@
         <a href="https://www.ncaatickets.com/championship/womens-final-four" class="container">NCAA Women</a>
     </div>
     <h1 th:text="${title}">PassTime Sports</h1>
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown button
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-    </div>
-
 
         <a th:href="@{/events}" class="container">View All Events</a>
         <a th:href="@{/events/create}" class="container">Create Event</a>
         <a th:href="@{/typeOfEvent}" class="container">View Event Types</a>
         <a th:href="@{/typeOfEvent/create}" class="container">Create Event Types</a>
-        <a th:href="@{/tags}" class="container">View Tags</a>
+        <a th:href="@{/tags}" class="container">View Tags</a></option>
         <a th:href="@{/tags/create}" class="container">Create Tags</a>
-
 
 
 </header>
