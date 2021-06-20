@@ -25,7 +25,7 @@ public class Event extends AbstractEntity{
     @NotNull
     private EventDetails eventDetails;
 
-    @NotNull(message="Event type is required.")
+    @NotNull(message="Event type is required.")//there is one event type for each event.
     @ManyToOne
     private TypeOfEvent typeOfEvent;
 

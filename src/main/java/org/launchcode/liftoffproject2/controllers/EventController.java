@@ -81,6 +81,8 @@ public class EventController {
         Event event= result.get();
         event.setName(name);
         event.getEventDetails().setDescription(description);
+        eventRepository.save(event);
+
         model.addAttribute("event",eventRepository.findAll());
 
         return "redirect:/events";
