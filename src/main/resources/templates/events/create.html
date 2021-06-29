@@ -36,14 +36,14 @@
     <div class="form-group">
         <label>
             Location
-            <input th:field="${event.eventDetails.location}"  class="form-control">
+            <input th:field="${event.eventDetails.location}"  placeholder="City, State" class="form-control">
         </label>
         <p class="error" th:errors="${event.eventDetails.location}"></p>
     </div>
     <div class="form-group">
         <label>
             Contact Email
-            <input th:field="${event.eventDetails.contactEmail}"  class="form-control">
+            <input th:field="${event.eventDetails.contactEmail}"  placeholder="example: xxx@gmail.com" class="form-control">
         </label>
         <p class="error" th:errors="${event.eventDetails.contactEmail}"></p>
     </div>
@@ -59,19 +59,20 @@
                 <p class="error" th:errors="${event.typeOfEvent}"></p>
         </label>
     </div>
-    <div class="form-group">
-        <label>
-            Event Tags
-            <select th:field="${event.tags}" >
-                <option th:each="tag : ${tags}"
-                        th:value="${tag.id}"
-                        th:text="${tag.name}"
-                ></option>
-            </select>
-            <p class="error" th:errors="${event.tags}"></p>
-        </label>
+<!--    <div class="form-group">-->
+<!--        <label>-->
+<!--            Event Tags-->
+<!--            <input type="hidden" th:field="${event.tags}">-->
+<!--            <select th:field="${event.tags}">-->
+<!--                <option th:each="tag : ${tags}"-->
+<!--                        th:value="${tag.id}"-->
+<!--                        th:text="${tag.name}"-->
+<!--                ></option>-->
+<!--            </select>-->
+<!--            <p class="error" th:errors="${event.tags}"></p>-->
+<!--        </label>-->
 
-    </div>
+<!--    </div>-->
     <div >
         <input type="submit" value="Create" class="btn btn-info">
     </div>

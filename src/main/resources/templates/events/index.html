@@ -9,28 +9,32 @@
     <table class="table table-striped">
         <thead class="thead-light">
             <tr>
-                <th>Event ID</th>
+<!--                <th>Event ID</th>-->
                 <th>Event Name</th>
-                <th>Description</th>
-                <th>Date</th>
+<!--                <th>Description</th>-->
+<!--                <th>Date</th>-->
 <!--                <th>Time</th>-->
-                <th>Location</th>
-                <th>Contact Email</th>
-                <th>Event Type</th>
+<!--                <th>Location</th>-->
+<!--                <th>Contact Email</th>-->
+<!--                <th>Event Type</th>-->
+<!--                <th>Events Tags</th>-->
                 <th>Event Actions</th>
             </tr>
         <h3>All Sporting Events</h3>
         <p th:unless="${events} and ${events.size()}">No events have been added.</p>
         </thead>
             <tr th:each="event:${events}">
-                <td th:text="${event.id}"></td>
-                <td th:text="${event.name}"></td>
-                <td th:text="${event.eventDetails.description}"></td>
-                <td th:text="${event.eventDetails.date}"></td>
+<!--                <td th:text="${event.id}"></td>-->
+                <td >
+                    <a th:href="'/events/detail?eventId='+ ${event.id}" th:text="${event.name}"></a>
+                </td>
+<!--                <td th:text="${event.eventDetails.description}"></td>-->
+<!--                <td th:text="${event.eventDetails.date}"></td>-->
 <!--                <td th:text="${event.eventDetails.time}"></td>-->
-                <td th:text="${event.eventDetails.location}"></td>
-                <td th:text="${event.eventDetails.contactEmail}"></td>
-                <td th:text="${event.typeOfEvent.name}"></td>
+<!--                <td th:text="${event.eventDetails.location}"></td>-->
+<!--                <td th:text="${event.eventDetails.contactEmail}"></td>-->
+<!--                <td th:text="${event.typeOfEvent.name}"></td>-->
+<!--                <td th:text="${eventTagDTO.tags}"></td>-->
                 <td><a th:href="@{/events/edit/{id}(id=${event.id})}">Edit</a></td>
 
 

@@ -42,7 +42,6 @@ public class TagController {
             model.addAttribute(tag);
             return "tags/create";
         }
-
         tagRepository.save(tag);
         return "redirect:";
     }

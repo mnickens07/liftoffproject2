@@ -3,7 +3,9 @@ package org.launchcode.liftoffproject2.controllers;
 import org.launchcode.liftoffproject2.data.EventData;
 import org.launchcode.liftoffproject2.data.EventRepository;
 import org.launchcode.liftoffproject2.data.TypeOfEventRepository;
+import org.launchcode.liftoffproject2.data.UserRepository;
 import org.launchcode.liftoffproject2.models.Event;
+import org.launchcode.liftoffproject2.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +27,9 @@ public class HomeController {
     @Autowired
     private TypeOfEventRepository typeOfEventRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
 //    @GetMapping
 //    public String index(Model model){
 //
@@ -35,7 +40,9 @@ public class HomeController {
 
     @GetMapping
     public String displayAllEvents(Model model) {
-        model.addAttribute("title", "All Events");
+//        User user= userRepository.findByUsername(userName);
+//        userRepository.save(user);
+        model.addAttribute("title", "Welcome User");
         model.addAttribute("events", eventRepository.findAll());
         return "index";
     }

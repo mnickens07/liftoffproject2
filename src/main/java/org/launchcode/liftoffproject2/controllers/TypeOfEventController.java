@@ -16,7 +16,6 @@ import javax.validation.Valid;
 @Controller
 @RequestMapping("typeOfEvent")
 public class TypeOfEventController {
-
     @Autowired
     private TypeOfEventRepository typeOfEventRepository;
 

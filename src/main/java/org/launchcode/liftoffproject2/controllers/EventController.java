@@ -48,6 +48,8 @@ public class EventController {
         return "events/index";
     }
 
+
+
     @GetMapping("create")
     public String renderCreateEventForm(Model model) {
         model.addAttribute("title", "Create Sporting Event");
@@ -112,20 +114,20 @@ public class EventController {
         Event event = result.get();
         model.addAttribute("title", "Add Tag to: " + event.getName());
         model.addAttribute("tags", tagRepository.findAll());
-        EventTagDTO eventTag = new EventTagDTO();
-        eventTag.setEvent(event);
-        model.addAttribute("eventTag", eventTag);
+        EventTagDTO eventTagDTO = new EventTagDTO();
+        eventTagDTO.setEvent(event);
+        model.addAttribute("eventTagDTO", eventTagDTO);
         return "events/add-tag.html";
     }
 
     @PostMapping("add-tag")
-    public String processAddTagForm(@ModelAttribute @Valid EventTagDTO eventTag,
+    public String processAddTagForm(@ModelAttribute @Valid EventTagDTO eventTagDTO,
                                     Errors errors,
                                     Model model){
 
         if (!errors.hasErrors()) {
-            Event event = eventTag.getEvent();
-            Tag tag = eventTag.getTag();
+            Event event = eventTagDTO.getEvent();
+            Tag tag = eventTagDTO.getTag();
             if (!event.getTags().contains(tag)){
                 event.addTag(tag);
                 eventRepository.save(event);
