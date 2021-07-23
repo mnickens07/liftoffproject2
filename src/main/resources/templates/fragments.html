@@ -1,41 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<!--in general, fragments allows me to share code across the other templates in my app.-->
 <head th:fragment="head">
     <meta charset="UTF-8"/>
     <title>PassTime Sports</title>
-
     <script th:src="@{script.js}"></script>
     <link th:href="@{styles.css}" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
     <link rel="stylesheet" th:href="@{/styles.css}">
-
 </head>
 <body>
-
 <header th:fragment="header">
-
     <nav class="navbar navbar-dark bg-dark">
         <img th:src="@{/passtime-logo2.png}" >
         <div  class="media" >
             <a th:href="@{/}" th:style="|${'color: white;'}|"  >PassTime Sports</a>
-
         </div>
         <div>
             <a th:href="@{/events}">Sporting Events</a>
         </div>
         <ul class="nav" style="float-right;">
             <li class="nav-item"><a class="nav-link" href="/logout">Log out</a></li>
-
         </ul>
     </nav>
-
-
-
     <div >
-
         <a th:href="@{/}" class="container">Home</a>
         <a th:href="@{https://bit.ly/3v0fLdE}" class="container">NFL</a>
         <a href="https://on.nba.com/3ypa9vo" class="container">NBA</a>
@@ -47,7 +35,6 @@
         <a href="https://www.ncaatickets.com/championship/womens-final-four" class="container">NCAA Women</a>
     </div>
     <h1 th:text="${title}">PassTime Sports</h1>
-
         <a th:href="@{/events}" class="container">View All Events</a>
         <a th:href="@{/events/create}" class="container">Create Event</a>
         <a th:href="@{/typeOfEvent}" class="container">View Event Types</a>
@@ -55,8 +42,6 @@
         <a th:href="@{/tags}" class="container">View Tags</a></option>
         <a th:href="@{/tags/create}" class="container">Create Tags</a>
         <a th:href="@{/events/delete}" class="container">Delete Event</a>
-
-
 </header>
 
 
